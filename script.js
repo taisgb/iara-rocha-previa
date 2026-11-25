@@ -5,7 +5,7 @@ const feed = document.getElementById('instagram-feed');
 if (INSTAGRAM_FEED_URL && feed) {
   try { const url = new URL(INSTAGRAM_FEED_URL); if (url.protocol === 'https:') { feed.src = url.href; feed.title = 'Publicações recentes do Instagram'; } } catch(e) { console.warn('URL do feed inválida.'); }
 }
-const menu = document.querySelector('.menu'), nav = document.querySelector('nav');
+const menu = document.querySelector('.menu'), nav = document.getElementById('navlinks');
 function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');nav.classList.remove('open');}
 menu.addEventListener('click',()=>{const opening=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(opening));menu.setAttribute('aria-label',opening?'Fechar menu':'Abrir menu');nav.classList.toggle('open',opening)});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
